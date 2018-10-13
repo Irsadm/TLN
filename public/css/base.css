@@ -1,0 +1,34 @@
+html {
+    background-image: linear-gradient(#00ccff, #ad00cc);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100% !important;
+
+}
+
+body {
+    background-color: transparent;
+    background-attachment: fixed;
+    height: 100%;
+
+}
+
+.row.satu{
+    margin-top: 15%;
+}
+img {
+    width: 18;
+    height: 70%;
+    margin-top: 10%;
+}
+
+
+/*div[class="row"] {*/
+    /*outline: 1px dotted rgba(0, 0, 0, 0.25);*/
+/*}*/
+
+/*div[class^="col-"] {*/
+    /*background-color: rgba(255, 0, 0, 0.2);*/
+    /*outline: 1px dotted rgba(0, 0, 0, 0.5);*/
+/*}*/
+/*style="min-width:100%; min-height:100%;background-image: linear-gradient(to bottom, #00ccff, #ad00cc); background-attachment: fixed; background-repeat: no-repeat; margin:0*/

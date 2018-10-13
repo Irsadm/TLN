@@ -1,0 +1,251 @@
+{% extends 'templates/form-template.twig' %}
+
+{% block main %}
+
+    <div class="container-fluid" style="width:100%; height:100%; margin-top:5%">
+      <div class="row satu">
+         <div class="col-xs-6 col-sm-4"></div>
+        <div class="col-xs-6 col-sm-4 text-left">
+                    <!-- form -->
+          <form id="myForm">
+          <!-- erorr -->
+          <center>
+            <div class="error-block hidden">
+          <span class="breadcrumb" id="errormessages" style="display: inline; background-color: #f2dede; color: #cc4644; width: 54%; box-shadow: 4px 4px 3px  #C0C0C0; margin-bottom: 13%">Lengkapi data profil Anda !</span>
+          </div>
+          </center>
+            <!-- sifat dan karakter -->
+             <div style="margin-top: 8%">
+              <textarea name="karakterDanSifat" id="karakterDanSifat" class="form-control" cols="1" rows="1" placeholder="Karakter dan sifat"></textarea>
+            </div> 
+            <br>        
+
+
+            <!-- Kriteria akhwat yang diharapkan -->
+          <div class="kriteria-yang-diharapkan">
+            <h6>Kriteria akhwat yang diharapkan</h6>
+          </div>
+          <br>
+          <!-- umur  -->
+          <div class="row umur">
+             <div class="col-md-4 umur">
+                <input type="number" placeholder="Umur" class="form-control umur" id="minUmur" name="minUmur">
+             </div>
+              <div class="col-md-4 umur text-center" >
+                <h6 style="margin-top: 8%">sampai</h6>
+              </div>
+               <div class="col-md-4 umur">
+                <input type="number" placeholder="Umur" class="form-control umur" id="maxUmur" name="maxUmur">
+               </div>
+
+          </div>
+
+          <br>
+          <!-- domisili -->
+          <div>
+            <input type="text" name="domisiliAkhwat" id="domisiliAkhwat" class="form-control" placeholder="Domisili">
+          </div>
+
+          <br>
+          <!-- pekerjaan -->
+          <div>
+            <input type="text" name="pekerjaanAkhwat" id="pekerjaanAkhwat" class="form-control" placeholder="Pekerjaan">
+          </div>
+
+          <br>
+          <!-- kriteria lainnya -->
+             <div>
+              <textarea name="kriteriaLainnya" id="kriteriaLainnya" class="form-control" cols="1" rows="1" placeholder=" Kriteria lainnya"></textarea>
+            </div> 
+
+          <br>
+          <!-- upload foto -->
+          <div class="row upload-foto">
+            <br>
+            <br>
+          </div>
+
+          <div class="upload">
+            <div class="row upload">
+              <label for="uploadFile" class="labelia">
+              <img src="public/assets/images/camera-lit.png"  class="img-circle" alt="">
+              <img src="public/assets/images/camera.png" class="img-fluid" alt=""  name="image" id="image" for="uploadFile">
+              <div class="middle"></div>
+              </label>
+                  <small class="lineheightwo"><span>Silakan upload foto close up dengan memegang KTP anda
+                  di samping anda, foto wajib tampak wajah</span></small>
+            </div>
+              <input type="file" name="uploadFile" id="uploadFile" style="visibility: hidden">
+
+          </div>
+        
+           <div class="text-center">
+              <button type="submit" class="btn btn-kirim" id="selanjutnya"> Kirim Data</button>
+          </div>
+
+            <br>
+          
+          <input type="hidden" id="url" value="{{ base_url() }}">
+
+     
+          </form>
+
+        <!-- endform -->
+
+        </div>
+        <!-- Optional: clear the XS cols if their content doesn't match in height -->
+
+        <div class="clearfix visible-xs-block"></div>
+        <div class="col-xs-6 col-sm-4"></div>
+      </div>
+
+
+
+
+    </div>
+{% endblock %}
+{% block js %}
+ <script>
+ var base_url = $('#url').val();
+jQuery.validator.setDefaults({
+  debug: true,
+});
+
+ $(document).ready(function() {
+  var validator = $("#myForm").validate({
+        errorClass: "errors",
+        // errorElement: "input",
+        // onfocusout: false,
+        rules: {
+            karakterDanSifat: {
+                "required": true,
+                // "email" : true,
+            },
+            minUmur: {
+                "required": true
+            },
+            maxUmur: {
+                "required": true
+            },
+            domisiliAkhwat: {
+                "required": true
+            },
+            pekerjaanAkhwat: {
+                "required": true
+            },
+            kriteriaLainnya: {
+                "required": true
+            },
+            image: {
+                "required": true
+            },
+            
+        },
+      errorPlacement: function(error, element) {
+           error.appendTo(element);
+
+
+       },
+        // errorPlacement: function(element) {
+        //     if ($(element).hasClass('form-control')) {
+        //         this.element(element);
+        //     }
+        // },
+        showErrors: function (errorMap, errorList) {
+
+        this.defaultShowErrors(); 
+
+        // toggle the error summary box
+        if (this.numberOfInvalids() > 0) {
+            $(".error-block").removeClass('hidden');
+        } else {
+            $("#errormessages").hide();
+        }
+
+
+    },
+     submitHandler: function(form) {
+        var storage = firebase.storage().ref('profile/ikhwan/');
+        var currentKey = localStorage.getItem('key');
+        // var names;
+        var currentName = database.ref('ikhwan/' + currentKey);
+        currentName.once("value").then(function(snapshot) {
+          var names = snapshot.child('nama').val();
+          localStorage.setItem('names', names);
+        });
+
+
+          var karakterDanSifat = document.getElementById('karakterDanSifat').value;
+          var minUmur = document.getElementById('minUmur').value;
+          var maxUmur = document.getElementById('maxUmur').value;
+          var domisiliAkhwat = document.getElementById('domisiliAkhwat').value;
+          var pekerjaanAkhwat = document.getElementById('pekerjaanAkhwat').value;
+          var kriteriaLainnya = document.getElementById('kriteriaLainnya').value;
+          var foto = document.getElementById('uploadFile').files[0];
+
+          var tanggal = new Date();
+          var dateFormated = dateFormat(tanggal, "ddmmyyyyhhMMss");
+          var names = localStorage.getItem('names');
+          var fileName = names + '-' + dateFormated+'.jpg';
+          // console.log(fileName);
+          // var fileName = foto.name;
+          // var stringFn = toString(fileName);
+         var getURL;
+         var getUR;
+         var uploads;
+         var url;
+         var downloadUri;
+
+        var newPath = storage.child(fileName);
+
+        var uploadTask = storage.child(fileName).put(foto);
+        var ikhwanTable = database.ref().child('ikhwan/'+currentKey);
+
+        uploadTask.on(
+            firebase.storage.TaskEvent.STATE_CHANGED,
+            null,
+            null,
+            function(snapshot) {
+            newPath.getDownloadURL().then(function(downloadURL) {
+            ikhwanTable.update({ foto:downloadURL });
+            window.location.replace(base_url+'/form-send');
+              });
+            });
+
+
+          ikhwanTable.update({
+            karakterDanSifat: karakterDanSifat,
+            minUmur: minUmur,
+            maxUmur: maxUmur,
+            domisiliAkhwat: domisiliAkhwat,
+            pekerjaanAkhwat: pekerjaanAkhwat,
+            kriteriaLainnya: kriteriaLainnya,
+          });
+
+        }
+
+    });
+
+});
+
+    $('#selanjutnya').click(function () {
+        $('#myForm').valid(); // run a validity test on the form
+    });
+
+
+
+</script>
+
+<script type="text/javascript" >
+  document.getElementById("uploadFile").onchange = function () {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById("image").src = e.target.result;
+    }
+    reader.readAsDataURL(this.files[0]);
+};
+
+</script>
+
+
+{% endblock %}

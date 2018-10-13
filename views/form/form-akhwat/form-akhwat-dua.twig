@@ -1,0 +1,243 @@
+{% extends 'templates/form-template.twig' %}
+{% block main %}
+
+    <div class="container-fluid" style="width:100%; height:100%">
+      <div class="row satu">
+         <div class="col-xs-6 col-sm-4"></div>
+        <div class="col-xs-6 col-sm-4 text-left">
+
+          <center>
+            <div class="error-block hidden">
+          <span class="breadcrumb" id="errormessages" style="display: inline; background-color: #f2dede; color: #cc4644; width: 54%; box-shadow: 4px 4px 3px  #C0C0C0; margin-bottom: 13%">Lengkapi data profil Anda !</span>
+          </div>
+          </center>
+                    <!-- form -->
+          <form id="myForm">
+            <!-- jumlah hafalan -->
+            <div class="form-group jumlah-hafalan">
+                <label for="status" class="label-radio">Jumlah hafalan Qur'an</label>
+                  <span  class="errorRadio hidden" id="jmlHafalanQuran" ><img class="float-right" style="display: inline; width: 5.7%; margin-top: 0 !important" src="public/assets/images/icon_tanda_seru.png" alt=""></span>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="jmlHafalanQuran" id="jmlHafalanQuran" autocomplete="jumlah hafalan" value="Surat pendek">
+                    <label class="form-check-label" for="exampleRadios1">
+                      Surat pendek
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="jmlHafalanQuran" id="jmlHafalanQuran" value="1 - 3 juz">
+                    <label class="form-check-label" for="exampleRadios2">
+                      1 - 3 juz
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="jmlHafalanQuran" id="jmlHafalanQuran" value="3 - 10 juz">
+                    <label class="form-check-label" for="exampleRadios3">
+                      3 - 10 juz
+                    </label>
+                  </div> 
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="jmlHafalanQuran" id="jmlHafalanQuran" value="Diatas 10 juz">
+                    <label class="form-check-label" for="exampleRadios3">
+                      Diatas 10 juz
+                    </label>
+                  </div>               
+            </div>
+
+            <div>
+              <textarea name="kelompokNgaji" id="kelompokNgaji" class="form-control" cols="1" rows="1" placeholder="Kelompok ngaji"></textarea>
+              <small class="lineheigh"><span>Sebutkan nama Ustadz, website, fikrah, manhaj, organisasi  atau radio yang sedang didengar 
+                  dan diikuti</span></small>
+            </div> 
+
+              <br>
+              <!-- panjang jilbab -->
+
+              <div class="form-group jumlah-hafalan">
+                <label for="status" class="label-radio">Panjang jilbab</label>
+                <span  class="errorRadio2 hidden" id="panjangJilbab"><img class="float-right" style="display: inline;width: 5.7%; margin-top: 0 !important" src="public/assets/images/icon_tanda_seru.png" alt=""></span>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="panjangJilbab" id="panjangJilbab" value="Hijab dililit di leher" >
+                    <label class="form-check-label" for="exampleRadios1">
+                      Hijab dililit di leher
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="panjangJilbab" id="panjangJilbab" value="Menutupi dada">
+                    <label class="form-check-label" for="exampleRadios2">
+                      Menutupi dada
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="panjangJilbab" id="panjangJilbab" value="Menutupi perut">
+                    <label class="form-check-label" for="exampleRadios3">
+                      Menutupi perut
+                    </label>
+                  </div> 
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="panjangJilbab" id="panjangJilbab" value="Menutupi paha">
+                    <label class="form-check-label" for="exampleRadios3">
+                      Menutupi paha
+                    </label>
+                  </div> 
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="panjangJilbab" id="panjangJilbab" value="Menutupi lutut">
+                    <label class="form-check-label" for="exampleRadios3">
+                      Menutupi lutut
+                    </label>
+                  </div> 
+            </div>
+            <br>
+
+           
+            <!-- hoby -->
+             <div>
+              <textarea name="hobi" id="hobi" class="form-control" cols="1" rows="1" placeholder="Hobi"></textarea>
+            </div> 
+            <br>
+            <!-- tinggi badan -->
+            <div class="form-group">
+                  <input type="number" class="form-control" id="tinggiBadan" onfocus="focusFunction()" name="tinggiBadan" placeholder="Tinggi Badan">
+            </div>
+            
+            <br>
+            <br>
+            <!-- berat badan -->
+            <div class="form-group">
+                  <input type="number" class="form-control" id="beratBadan" name="beratBadan" aria-describedby="basic-addon3" placeholder="Berat Badan">
+            </div>
+
+
+          <button type="submit" class="float-right btn btn-lanjut"  id="selanjutnya"> Selanjutnya </button>
+          <input type="hidden" id="url" value="{{ base_url() }}">
+          </form>
+
+        <!-- endform -->
+
+        </div>
+        <!-- Optional: clear the XS cols if their content doesn't match in height -->
+
+        <div class="clearfix visible-xs-block"></div>
+        <div class="col-xs-6 col-sm-4"></div>
+      </div>
+
+
+
+
+    </div>
+
+{% endblock %}
+{% block js %}
+
+<script>
+var base_url = $('#url').val();
+jQuery.validator.setDefaults({
+  debug: true,
+});
+
+ $(document).ready(function() {
+$("input[name='jmlHafalanQuran']").click(function(event) {
+$('.errorRadio').hide();
+  /* Act on the event */
+});
+$("input[name='panjangJilbab']").click(function(event) {
+$('.errorRadio2').hide();
+  /* Act on the event */
+});
+
+  var validator = $("#myForm").validate({
+        errorClass: "errors",
+        // errorElement: "input",
+        // onfocusout: false,
+        rules: {
+            jmlHafalanQuran: {
+                "required": true,
+                // "email" : true,
+            },
+            kelompokNgaji: {
+                "required": true
+            },
+            panjangJilbab: {
+                "required": true
+            },
+            hobi: {
+                "required": true
+            },
+            tinggiBadan: {
+                "required": true
+            },
+            beratBadan: {
+                "required": true
+            },
+            
+        },
+      errorPlacement: function(error, element) {
+        if (element.attr("name") == "jmlHafalanQuran") {
+          $('.errorRadio').removeClass('hidden');
+        } else if (element.attr("name") == "panjangJilbab")  {
+          $('.errorRadio2').removeClass('hidden');
+
+        } else {
+           error.appendTo(element);
+         }
+
+       },
+        // errorPlacement: function(element) {
+        //     if ($(element).hasClass('form-control')) {
+        //         this.element(element);
+        //     }
+        // },
+        showErrors: function (errorMap, errorList) {
+
+        this.defaultShowErrors(); 
+
+        // toggle the error summary box
+        if (this.numberOfInvalids() > 0) {
+            $(".error-block").removeClass('hidden');
+        } else {
+            $("#errormessages").hide();
+        }
+
+
+    },
+     submitHandler: function(form) {
+          var currentKey = localStorage.getItem('key');
+
+          var jmlHafalanQuran = document.querySelector('input[name="jmlHafalanQuran"]:checked').value;
+          var panjangJilbab = document.querySelector('input[name="panjangJilbab"]:checked').value;
+          var kelompokNgaji = document.getElementById('kelompokNgaji').value;
+          var hobi = document.getElementById('hobi').value;
+          var tinggiBadan = document.getElementById('tinggiBadan').value;
+          var beratBadan = document.getElementById('beratBadan').value;
+
+          var akhwatTable = database.ref().child('akhwat/'+currentKey);
+
+          // var newIkhwan = ikhwanTable.push();
+          // var newKey = ikhwanTable.push().key;
+
+          akhwatTable.update({
+            jmlHafalanQuran: jmlHafalanQuran,
+            hobi: hobi,
+            kelompokNgaji: kelompokNgaji,
+            panjangJilbab: panjangJilbab,
+            tinggiBadan: tinggiBadan,
+            beratBadan: beratBadan,
+          });
+
+           window.location.replace(base_url+'/form-tiga');
+        }
+
+    });
+
+});
+
+    $('#selanjutnya').click(function () {
+        $('#myForm').valid(); // run a validity test on the form
+    });
+
+
+
+</script>
+
+
+
+{% endblock %}

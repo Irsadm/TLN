@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+body {
+    background: #ffff;
+}
+
+header {
+    height: 4em;
+    background-color: #ad00cc;
+    color: #ffff;
+    padding-top: 2em;
+}
+
+h6.isidata{
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+}
+
+.row.satu {
+    margin-top: 2.5%;
+}
+
+.error-block {
+    /*margin-top: 5%;*/
+    margin-bottom: 10% !important;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-control {
+    color: black !important;
+    background-color: transparent !important;
+    border: none;
+    border-bottom: 1px solid #DCDCDC !important;
+    border-radius: 0 !important;
+    font-family: 'Roboto Slab', serif;
+    padding-left: 0 !important;
+
+}
+
+input:focus {
+    outline-offset: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #35ac4f !important;
+
+}
+
+textarea:focus {
+    outline-offset: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #35ac4f !important;
+
+}
+
+
+
+small {
+    color: #DCDCDC !important;
+}
+
+.form-group.status {
+    margin-left: 8% !important;
+}
+
+label.label-status {
+    margin-left: -6% !important;
+}
+
+.form-group.jumlah-hafalan {
+    margin-left: 8%;
+}
+
+label.label-radio {
+    margin-left: -8%;
+}
+
+.float-right {
+    margin-right: 0.1%;
+    margin-bottom: 8%;
+    margin-top: 5%;
+    position: relative;
+    /*width: 8%;*/
+}
+
+button#selanjutnya.float-right.btn.btn-lanjut {
+    border-radius: 4px;
+    background: transparent;
+    color: #00b1ff;  
+    border: 1px solid #00b1ff;
+    padding: 2.7%;
+    padding-left: 7% !important;
+    padding-right: 7% !important;
+    font-family: 'Roboto Slab', serif;
+    /*width: 120%;*/
+
+}
+
+button#selanjutnya.float-right.btn.btn-lanjut:hover {
+    border-radius: 4px;
+    background: #00b1ff;;
+    color: white;  
+    padding: 2.7%;
+    padding-left: 7% !important;
+    padding-right: 7% !important;
+    font-family: 'Roboto Slab', serif;
+    /*width: 120%;*/
+
+}
+
+button#selanjutnya.float-right.btn.btn-lanjut:focus {
+    border-radius: 4px;
+    background: #00b1ff;
+    color: white ;  
+    border: 1px solid #c0ebff;
+    padding: 2.7%;
+    padding-left: 7% !important;
+    padding-right: 7% !important;
+    font-family: 'Roboto Slab', serif;
+    /*width: 120%;*/
+
+}
+
+
+small.lineheigh {
+    margin-top: 2%;
+    line-height: 130%;
+    display: block;
+}
+
+small.lineheightwo {
+    margin-top: 8%;
+    line-height: 130%;
+    display: block;
+}
+
+.input-group-text {
+    color: #DCDCDC  !important;
+    background-color: transparent !important;
+    border: none;
+    border-bottom: 1px solid #DCDCDC !important;
+    border-radius: 0 !important;
+}
+
+.ciri-fisik h6 {
+    border-bottom: 0.5px solid  #f9d8ff;
+    display: inline-block;
+    /*width: 19%;*/
+    padding-bottom: -5%;
+
+}
+
+.upload-foto {
+    height: 40%;
+    background-color: #f7f7f7;
+}
+
+.row .umur {
+    /*position: fixed !important;*/
+    flex-wrap: nowrap !important;
+}
+
+.btn-kirim {
+    color: #ad00cc;
+    background-color: transparent;
+    width: 90%;
+    margin-bottom: 5%;
+    border: 1px solid #ad00cc;
+    display: flex-wrap;
+    font-family: 'Roboto Slab', serif;
+    /*box-sizing: border-box;*/
+}
+
+.btn-kirim:hover {
+    color: #ffff;
+    background-color: #ad00cc;
+    width: 90%;
+    margin-bottom: 5%;
+    display: flex-wrap;
+    font-family: 'Roboto Slab', serif;
+    /*box-sizing: border-box;*/
+}
+
+.btn-kirim:active {
+    color: #ffff;
+    background-color: #ad00cc;
+    width: 90%;
+    margin-bottom: 5%;
+    border: 1px solid #d4aadb;
+    display: flex-wrap;
+    font-family: 'Roboto Slab', serif;
+    /*box-sizing: border-box;*/
+}
+
+.upload {
+    box-sizing: border-box !important;
+    margin: 0 auto;
+    width: 100%;
+    /*height:34.4%;*/
+    padding: 4%;
+    display: block;
+}
+
+.img-fluid {
+    position: relative;
+    z-index: -1;
+    display: block;
+    opacity: 1;
+    /*width: 200px;*/
+    /*height: 200px;*/
+    /*height: 100%;*/
+    height: auto: ;                                                                                                                                                                                                                                                                                             
+
+}
+
+.labelia {
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+
+
+}
+
+.img-circle {
+    position: absolute;
+    z-index: 2;
+    width: 19%;
+    top: 87%;
+    left: 87%;
+}
+
+
+.labelia:hover .middle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: -98%;
+    background-color: #767676;
+    opacity: 0.5;
+    z-index: -1;
+    box-sizing: border-box;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #DCDCDC !important;
+    opacity: 1; /* Firefox */
+}
+
+    input[type='radio']:after {
+        width: 17px;
+        height: 17px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #d1d3d1;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    input[type='radio']:checked:after {
+        width: 17px;
+        height: 17px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #00b1ff;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+img.float-right {
+    width: 5.9% !important;
+}
+
+.errors {
+    background-image: url(../assets/images/icon_tanda_seru.png) !important;
+    background-position: right;
+    background-repeat: no-repeat;
+    float: left;
+    color: red;
+    border-bottom: 1px solid #cc4644 !important;
+    background-size: 5.5% !important;
+    line-height: 1.5 !important;
+}
+
+.form-control.errors {
+    margin-top: 5% !important;
+    margin-bottom: 3% !important;
+
+}
+
+.errors::placeholder {
+    color: #cc4644 !important;
+
+}
+
+.breadcrumb {
+    margin-top: 20%;
+
+}
+input[type="radio"].errors  {
+    color: black !important;
+    /*margin-top: auto !important;*/
+}
+
+input[name="minUmur"].errors, input[name="maxUmur"].errors  {
+    background-image: url(../assets/images/icon_tanda_seru.png) !important;
+    background-position: right;
+    background-repeat: no-repeat;
+    float: left;
+    color: red;
+    border-bottom: 1px solid #cc4644 !important;
+    background-size: 19.5% !important;
+    line-height: 1.5 !important;
+}
+
+input[name="tinggiBadan"] {
+    background-image: url(../assets/images/cm.png);
+    background-position: right;
+    background-size: 6%;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+input[name="beratBadan"] {
+    background-image: url(../assets/images/kg.png);
+    background-position: right;
+    background-size: 5%;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="date"]::-webkit-outer-spin-button,
+input[type="date"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    #errormessages {
+        margin-top: 18%;
+        margin-bottom: 18%;
+    }
+
+    header {
+        margin-bottom: 12% !important;
+    }
+    
+    form {
+        margin-top: 5% !important;
+    }
+
+    .errors {
+    background-size: 6.5% !important;
+    }
+
+    img.float-right {
+    width: 6.8% !important;
+    }
+
+    input[name="minUmur"].errors, input[name="maxUmur"].errors  {
+    background-size: 25% !important;
+    }
+
+}
+
+/*div[class="row"] {*/
+    /*outline: 1px dotted rgba(0, 0, 0, 0.25);*/
+/*}*/
+
+/*div[class^="col-"] {*/
+    /*background-color: rgba(255, 0, 0, 0.2);*/
+    /*outline: 1px dotted rgba(0, 0, 0, 0.5);*/
+/*}*/

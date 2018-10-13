@@ -1,0 +1,87 @@
+html {
+    background-image: linear-gradient(#00ccff, #ad00cc);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100% !important;
+
+}
+
+body {
+    background-color: transparent;
+    background-attachment: fixed;
+    height: 100%;
+
+}
+
+.row.image{
+    margin-top: 8%;
+}
+img.salam {
+    width: 13;
+    height: 60%;
+    margin-top: 12%;
+}
+
+h6 {
+    color: white;
+}
+
+.forget {
+    color: white;
+    margin-top: 12%;
+}
+
+.forget a {
+    color: white;
+    margin-top: 12%;
+}
+
+.forget a:hover {
+    color: white;
+    margin-top: 12%;
+    text-decoration: none;
+}
+
+.row.tiga {
+    margin-top: 10%;
+}
+
+.row.empat {
+    /*margin-top: 5%;*/
+    margin-bottom: 5%;
+}
+
+.form-control.submit {
+    margin: 0 auto;
+    margin-top: 10% !important;
+    margin-bottom: 6% !important;
+    padding: 8px !important;
+    color: white !important;
+    background-color: transparent !important;
+    border: 1px solid #ffff !important;
+    border-radius: 6px !important;
+    height: 40%  !important;
+    width: 80%  !important;
+
+}
+
+i.fa.fa-whatsapp {
+    margin: 0 auto !important;
+    font-size: 1.6em;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #DCDCDC !important;
+    opacity: 1; /* Firefox */
+}
+
+
+/*div[class="row"] {*/
+    /*outline: 1px dotted rgba(0, 0, 0, 0.25);*/
+/*}*/
+
+/*div[class^="col-"] {*/
+    /*background-color: rgba(255, 0, 0, 0.2);*/
+    /*outline: 1px dotted rgba(0, 0, 0, 0.5);*/
+/*}*/
+/*style="min-width:100%; min-height:100%;background-image: linear-gradient(to bottom, #00ccff, #ad00cc); background-attachment: fixed; background-repeat: no-repeat; margin:0*/

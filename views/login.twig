@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- own css -->
+    <link rel="stylesheet" href="public/css/login.css">
+
+    <title></title>
+  </head>
+  <body>
+    <div class="container-fluid" style="width:100%; height:100%">
+      <div class="row image">
+         <div class="col-xs-6 col-sm-4"></div>
+        <div class="col-xs-6 col-sm-4 text-center">
+        <img class="love" src="public/assets/images/tl_nicon.png" alt="">
+        </div>
+        <!-- Optional: clear the XS cols if their content doesn't match in height -->
+        <div class="clearfix visible-xs-block"></div>
+        <div class="col-xs-6 col-sm-4"></div>
+      </div>
+
+      <div class="row dua">
+         <div class="col-xs-6 col-sm-4"></div>
+        <div class="col-xs-6 col-sm-4 text-center">
+          <center>
+          <div class="error-block hidden">
+          <span class="breadcrumb"  id="errormessages" style="display: inline-block; background-color: #f2dede; color: #cc4644; min-width:202.500px; min-height:48px !important; margin-bottom: 13%">Masukan nomor handphone <br>dan password yang benar !</span>
+          </div>
+        </center>
+          <!-- form -->
+          <form>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="myicon"><img class="hp" src="public/assets/images/hp.png" alt=""><span class="sekat"></span></span>
+                </div>
+                <input type="number" class="form-control login" placeholder="Nomor Handphone" autocomplete="nope" id="nope" aria-label="Nomor Handphone" aria-describedby="myicon">
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="myicon"><img class="gembok" src="public/assets/images/gembok.png" alt=""><span class="sekat-dua"></span></span>
+                </div>
+                <input type="password" class="form-control login" placeholder="Password" id="password" aria-label="Username" aria-describedby="myicon" autocomplete="password">
+              </div>
+
+
+            <div class="form-group">
+              <button class="form-control submit" type="submit"  id="sign-in">Login</button>
+            </div>
+
+            <div class="form-group">
+                <h6 class="forget"><a href="#"><b>Lupa password?</b></a></h5>
+            </div>
+
+            <div class="form-group">
+              <button class="form-control submit" type="submit">Admin Login</button>
+            </div>
+
+            <div class="form-group">
+              <a href="http://localhost/Project/TLN/reg">
+              <button class="form-control submit" type="button">Belum punya akun? daftar disini</button>
+              </a>
+            </div>
+          </form>
+
+
+        </div>
+        <!-- Optional: clear the XS cols if their content doesn't match in height -->
+        <div class="clearfix visible-xs-block"></div>
+        <div class="col-xs-6 col-sm-4"></div>
+        <input type="hidden" id="url" value="{{ base_url() }}">
+      </div>
+
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-functions.js"></script>
+
+<script>
+  // $( document ).onload(function() {
+// $('#errormessages').hide();
+// });
+
+var getURL = $('#url').val();
+
+// console.log(getURL);
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCjDQYXa7jA51uMMwoZvsuo3UWU_zimU_Y",
+    authDomain: "tln-apps.firebaseapp.com",
+    databaseURL: "https://tln-apps.firebaseio.com",
+    projectId: "tln-apps",
+    storageBucket: "tln-apps.appspot.com",
+    messagingSenderId: "824279808197"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+  var base_url  = $('#url').val();
+  // console.log(base_url);
+
+  document.getElementById('sign-in').addEventListener('click', function(e) {
+
+  e.preventDefault();
+  e.stopPropagation();
+  var password;
+  var nope = document.getElementById("nope").value;
+  var passwordy = document.getElementById("password").value;
+
+  if (nope == "" && passwordy == "") {
+    $('.error-block').removeClass('hidden');
+  }
+    var ikhwanData = database.ref('ikhwan');
+    var akhwatData = database.ref('akhwat');
+
+   // function check(nope) {
+    // var phone = phone;
+    var ikhwanCheck = ikhwanData.orderByChild('phone').equalTo(nope);
+    var akhwatCheck = akhwatData.orderByChild('phone').equalTo(nope);
+
+
+
+ikhwanCheck.once('value', snapshot => {
+        if (snapshot.exists()) {
+          snapshot.forEach(function(userSnapshot){
+            var value = userSnapshot.val();
+            var verify = atob(value.password);
+            // console.log(verify);
+            if (passwordy == verify) {
+              window.location.replace(base_url+'/');
+            } else {
+              $('.error-block').removeClass('hidden');
+            }
+
+          })
+}
+
+})
+
+akhwatCheck.once('value', snapshot => {
+        if (snapshot.exists()) {
+          snapshot.forEach(function(userSnapshot){
+            var value = userSnapshot.val();
+            var verify = atob(value.password);
+            // console.log(verify);
+            if (passwordy == verify) {
+              window.location.replace(base_url+'/');
+            } else {
+              $('.error-block').removeClass('hidden');
+            }
+
+          })
+}
+
+})
+
+
+})
+</script>
+
+
+  </body>
+</html>
